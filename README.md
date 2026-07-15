@@ -331,7 +331,7 @@ Huawei Cloud Stack does not use an AWS-style IAM role model, so access control h
 | Separate monitoring pipeline from the Terraform infrastructure pipeline | A single combined pipeline | Monitoring configuration iterates on a different cadence and needs different validation tooling (`promtool` rather than a Terraform plan); a dashboard change now deploys in under two minutes |
 | Static threshold disk alerts over `predict_linear` extrapolation | Linear prediction of time-to-disk-exhaustion | Bursty workloads such as batch extract-transform-load jobs produced short spikes that extrapolated into false positives; a simple threshold with a hold duration proved more reliable in practice |
 
-## Errors Encountered and Resolved (Optional)
+## Errors Encountered and Resolved
 
 | Issue | Root Cause | Resolution |
 |---|---|---|
@@ -360,19 +360,3 @@ Huawei Cloud Stack does not use an AWS-style IAM role model, so access control h
 ## Conclusion
 
 This platform closes a genuine visibility gap on a managed database service by building the integrations the platform itself does not provide. The emphasis throughout was on removing manual toil (auto-discovery, fleet reconciliation, validate-before-deploy), on making the operational experience during an incident as fast as possible (structured alerts, Teams delivery, one-click acknowledgement), and on keeping the system trustworthy over time (disabling alerts that produced false positives rather than letting them be ignored, and validating configuration in two separate stages before it reaches a running service). The result is a fleet of over one hundred and thirty seven PostgreSQL instances monitored from a single, auto-discovering pipeline, with proactive alerting that did not exist before this work.
-
----
-
-### Suggested Repository Names
-
-The following names describe the platform accurately without relying on any employer or internal identifier. Pick whichever best matches your existing portfolio naming convention:
-
-1. `hcs-dbaas-observability-platform`
-2. `postgresql-fleet-monitoring-hcs`
-3. `prometheus-grafana-managed-rds-observability`
-4. `hcs-metrics-exporter-and-dashboards`
-5. `dbaas-monitoring-pipeline-huawei-cloud`
-6. `rds-fleet-observability-toolkit`
-
-If you intend to reference the employer by name in a private or access-controlled repository, `absa-dbaas-monitoring-platform` is also accurate, but is not recommended for a public-facing portfolio repository
-.
