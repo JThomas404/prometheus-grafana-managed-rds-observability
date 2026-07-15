@@ -15,9 +15,9 @@
   - [Microsoft Teams Alert Routing](#microsoft-teams-alert-routing)
   - [CI/CD Pipeline](#cicd-pipeline)
 - [Local Testing and Debugging](#local-testing-and-debugging)
-- [IAM Role and Permissions (Optional)](#iam-role-and-permissions-optional)
+- [IAM Role and Permissions](#iam-role-and-permissions)
 - [Design Decisions and Highlights](#design-decisions-and-highlights)
-- [Errors Encountered and Resolved (Optional)](#errors-encountered-and-resolved-optional)
+- [Errors Encountered and Resolved](#errors-encountered-and-resolved)
 - [Skills Demonstrated](#skills-demonstrated)
 - [Conclusion](#conclusion)
 
@@ -309,7 +309,7 @@ Validation was performed at three levels before any change reached the bastion h
 
 Dashboard changes were validated by importing the JSON export through the Grafana API against a non-production instance first, and cross-checking rendered panel values against a manual PromQL query in the Prometheus expression browser, before promoting the change through the pipeline.
 
-## IAM Role and Permissions (Optional)
+## IAM Role and Permissions
 
 Huawei Cloud Stack does not use an AWS-style IAM role model, so access control here takes three complementary forms:
 
