@@ -61,32 +61,32 @@ The platform assumes the following environment and access is available:
 ```
 5-vdc-shared/0-dev/
 ├── prometheus/
-│   ├── dev-configuration.yaml         # Prometheus scrape configuration (three jobs)
-│   ├── dev-alerting-rules.yaml        # 29 alerting rules and recording rules
-│   ├── custom-queries.yaml            # DBA-requested custom SQL collectors
-│   ├── dev-rds-inventory.md           # RDS instance inventory documentation
-│   └── metrics-and-thresholds.md      # Metric catalogue and threshold rationale
+│   ├── dev-configuration.yaml            # Prometheus scrape configuration (three jobs)
+│   ├── dev-alerting-rules.yaml           # 29 alerting rules and recording rules
+│   ├── custom-queries.yaml               # DBA-requested custom SQL collectors
+│   ├── dev-rds-inventory.md              # RDS instance inventory documentation
+│   └── metrics-and-thresholds.md         # Metric catalogue and threshold rationale
 ├── grafana/
-│   ├── dev-dashboards.json            # PostgreSQL overview dashboard (DBA audience)
-│   ├── dev-infra-dashboard.json       # Host-level fleet overview (platform/infra audience)
-│   ├── dev-rds-detail-dashboard.json  # Per-instance drill-down (on-call audience)
+│   ├── dev-dashboards.json               # PostgreSQL overview dashboard (DBA audience)
+│   ├── dev-infra-dashboard.json          # Host-level fleet overview (platform/infra audience)
+│   ├── dev-rds-detail-dashboard.json     # Per-instance drill-down (on-call audience)
 │   └── hcs-infra-capacity-dashboard.json # Resource pool and storage capacity planning
 ├── alertmanager/
-│   ├── dev-alertmanager.yml           # Alertmanager routing and receiver configuration
+│   ├── dev-alertmanager.yml              # Alertmanager routing and receiver configuration
 │   └── templates/
-│       └── teams.tmpl                 # Microsoft Teams notification template
+│       └── teams.tmpl                    # Microsoft Teams notification template
 └── oc-exporter/
-    ├── oc_exporter.py                 # Custom OC infrastructure exporter
-    ├── oc-exporter.service            # Systemd unit with secret placeholders
-    ├── pg_exporter_reconciler.py      # Fleet reconciler (auto-discovery)
-    ├── pg-exporter-reconciler.service # Reconciler systemd unit
-    ├── pg-exporter-reconciler.timer   # Systemd timer, five-minute interval
-    ├── postgres_exporter.service.j2   # Template for per-RDS exporter units
-    ├── pg-exporter-overrides.yaml     # Per-instance overrides (skip, pin, force)
-    └── oc_auth_test.py                # Standalone SSO authentication test utility
+    ├── oc_exporter.py                    # Custom OC infrastructure exporter
+    ├── oc-exporter.service               # Systemd unit with secret placeholders
+    ├── pg_exporter_reconciler.py         # Fleet reconciler (auto-discovery)
+    ├── pg-exporter-reconciler.service    # Reconciler systemd unit
+    ├── pg-exporter-reconciler.timer      # Systemd timer, five-minute interval
+    ├── postgres_exporter.service.j2      # Template for per-RDS exporter units
+    ├── pg-exporter-overrides.yaml        # Per-instance overrides (skip, pin, force)
+    └── oc_auth_test.py                   # Standalone SSO authentication test utility
 
 pipelines/
-└── 0-dev-monitoring.yml               # CI/CD pipeline (validate, then deploy over SSH)
+└── 0-dev-monitoring.yml                  # CI/CD pipeline (validate, then deploy over SSH)
 ```
 
 ## Tasks and Implementation Steps
