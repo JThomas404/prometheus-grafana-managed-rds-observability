@@ -25,7 +25,7 @@
 
 ## Overview
 
-This repository documents the design, implementation and operation of an observability platform built for a fleet of 137 or more managed PostgreSQL instances running on Huawei Cloud Stack (HCS). The instances are provisioned as Relational Database Service (RDS) resources and are fully managed by the platform, which means there is no SSH access, no SNMP agent and no standard node-level exporter available on the underlying virtual machines.
+This repository documents the design, implementation and operation of an observability platform built for a fleet of 300+ managed PostgreSQL instances running on Huawei Cloud Stack (HCS). The instances are provisioned as Relational Database Service (RDS) resources and are fully managed by the platform, which means there is no SSH access, no SNMP agent and no standard node-level exporter available on the underlying virtual machines.
 
 To close this visibility gap, a custom metrics exporter was built in Python to authenticate against the Huawei ManageOne Operation Center (OC) API, auto-discover every PostgreSQL RDS node from the platform's configuration management database, and expose host-level metrics (CPU, memory, disk, IOPS, replication status) as Prometheus gauges. This was combined with a per-instance `postgres_exporter` fleet for database-internal metrics, a Prometheus and Alertmanager stack for storage and alert evaluation, and four purpose-built Grafana dashboards for different operational audiences. Alerts are routed to Microsoft Teams with structured, runbook-style content, and all configuration is deployed through a dedicated Azure DevOps CI/CD pipeline that validates before it deploys.
 
